@@ -28,5 +28,5 @@ variable "labels" {
 variable "enable_services" {
   description = "Whether to enable the services needed for this module"
   type        = bool
-  default     = true
+  default     = false
 }

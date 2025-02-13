@@ -4,7 +4,7 @@ locals {
   labels = merge({
     namespace = var.namespace,
     terraform = "true"
-    tf_module = "gcp/gcs-lb-domain"
+    tf_module = "gcs-lb-domain"
     project   = local.project
   }, var.labels)
 

@@ -26,22 +26,22 @@ output "untrusted_subnet_router_nat" {
   value       = google_compute_router_nat.untrusted_subnet_router_nat
 }
 
-output "vpc_network" {
+output "public_subnet" {
   description = "The vpc public subnet object"
   value       = google_compute_subnetwork.public_subnet
 }
 
-output "vpc_network" {
+output "untrusted_subnet" {
   description = "The vpc untrusted subnet object"
   value       = google_compute_subnetwork.untrusted_subnet
 }
 
-output "vpc_network" {
+output "isolated_subnet" {
   description = "The vpc isolated subnet object"
   value       = google_compute_subnetwork.isolated_subnet
 }
 
-output "vpc_network" {
+output "vpc_connector_subnet" {
   description = "The vpc connector subnet object"
   value       = google_compute_subnetwork.vpc_connector_subnet
 }

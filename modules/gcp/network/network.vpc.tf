@@ -7,7 +7,9 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_vpc_access_connector" "cloud_run_access_connector" {
-  name = "vpc-conn-${local.environment}"
+  count         = var.vpc_access_connector_enabled ? 1 : 0
+  name          = "vpc-conn-${local.environment}"
+  max_instances = var.vpcac_max_instances
   subnet {
     name = google_compute_subnetwork.vpc_connector_subnet.name
   }
@@ -15,7 +17,6 @@ resource "google_vpc_access_connector" "cloud_run_access_connector" {
     google_compute_subnetwork.vpc_connector_subnet
   ]
 }
-
 
 # /******************************************
 # 	Shared VPC

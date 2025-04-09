@@ -68,7 +68,7 @@ resource "google_compute_subnetwork" "vpc_connector_subnet" {
   ip_cidr_range              = local.vpc_connector_sub_cidr
   region                     = var.gcp_provider_region
   private_ip_google_access   = false
-  private_ipv6_google_access = "DISABLE_GOOGLE_ACCESS"
+  private_ipv6_google_access = false
   network                    = google_compute_network.vpc_network.id
   depends_on                 = [google_compute_network.vpc_network]
 

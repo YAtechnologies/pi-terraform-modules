@@ -38,7 +38,6 @@ variable "cidr_prefix" {
   description = "the first 2 numbers of the ipv4 range we want to use for this project. i.e. 10.42"
 }
 
-
 # Flow logs
 variable "subnet_flow_logs" {
   type        = bool
@@ -69,4 +68,17 @@ variable "subnet_flow_logs_metadata_fields" {
   type        = list(string)
   description = "List of metadata fields that should be added to reported logs. Can only be specified if VPC flow logs for this subnetwork is enabled and `metadata` is set to CUSTOM_METADATA."
   default     = []
+}
+
+# vpc accessor
+variable "vpc_access_connector_enabled" {
+  type        = bool
+  description = "create also a vpc access connector (for cloud run)"
+  default     = null
+}
+
+variable "vpcac_max_instances" {
+  type        = number
+  default     = 3
+  description = "range [3:10] for autoscaling, must be higher than min_instances (default:2)"
 }

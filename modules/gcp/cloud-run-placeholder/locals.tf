@@ -5,7 +5,7 @@ locals {
   labels = merge({
     namespace   = var.namespace,
     terraform   = "true"
-    tf_module   = "psc-consumer"
+    tf_module   = "cloud-run-placeholder"
     project     = local.project
     environment = local.environment
   }, var.labels)

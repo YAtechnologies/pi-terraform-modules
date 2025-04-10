@@ -9,6 +9,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_vpc_access_connector" "cloud_run_access_connector" {
   count         = var.vpc_access_connector_enabled ? 1 : 0
   name          = "vpc-conn-${local.environment}"
+  min_instances = 2
   max_instances = var.vpcac_max_instances
   subnet {
     name = google_compute_subnetwork.vpc_connector_subnet.name

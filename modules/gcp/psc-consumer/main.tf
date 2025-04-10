@@ -3,7 +3,7 @@ resource "google_compute_address" "psc_consumer_address" {
 
   region       = var.psc_producer_region
   subnetwork   = var.vpc_subnetwork_id
-  address_type = "INTERNAL"
+  address_type = var.ip_address_type
 }
 
 # in case you don't have subnet in same region as the producer region you can create subnet

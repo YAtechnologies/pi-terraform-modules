@@ -31,6 +31,12 @@ variable "environment" {
   }
 }
 
+variable "ip_address_type" {
+  type        = string
+  default     = "INTERNAL"
+  description = "compute address type for the PSC endpoint"
+}
+
 variable "vpc_network_id" {
   default     = null
   type        = string

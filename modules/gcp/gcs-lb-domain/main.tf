@@ -47,6 +47,10 @@ resource "google_compute_target_https_proxy" "target_proxy" {
   name             = "${var.namespace}-target-proxy"
   url_map          = google_compute_url_map.url_map.self_link
   ssl_certificates = [google_compute_managed_ssl_certificate.ssl_cert.self_link]
+
+  lifecycle {
+    ignore_changes = [ssl_policy]
+  }
 }
 
 # GCP forwarding rule

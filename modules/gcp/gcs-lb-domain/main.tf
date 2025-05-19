@@ -32,7 +32,7 @@ resource "google_compute_managed_ssl_certificate" "ssl_cert" {
   }
 
   lifecycle {
-    ignore_changes = ["expire_time"]
+    ignore_changes = [expire_time]
   }
 }
 

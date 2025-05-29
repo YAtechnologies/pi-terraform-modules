@@ -17,5 +17,5 @@ locals {
 
   # IAP audience format - use predictable name to avoid circular dependency
   backend_service_name = "${var.namespace}-proxy-backend"
-  iap_audience         = "/projects/${data.google_project.current.number}/global/backendServices/${local.backend_service_name}"
+  iap_audience         = "/projects/${data.google_client_config.current.id}/global/backendServices/${local.backend_service_name}"
 }

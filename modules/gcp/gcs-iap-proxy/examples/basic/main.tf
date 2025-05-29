@@ -5,7 +5,7 @@ module "gcs_iap_proxy" {
 
   namespace         = "example"
   bucket_name       = "my-static-files-bucket"
-  region            = "us-central1"
+  region            = "europe-west1"
   domains           = ["dashboard.example.com"]
   support_email     = "support@example.com"
   application_title = "Example Dashboard"

@@ -35,6 +35,7 @@ variable "iap_users" {
 variable "support_email" {
   description = "Support email for IAP OAuth consent screen"
   type        = string
+  default     = ""
 }
 
 variable "application_title" {

@@ -17,6 +17,7 @@ resource "google_service_account" "proxy_sa" {
 
 # Grant storage access to the service account
 resource "google_storage_bucket_iam_member" "proxy_storage_access" {
+  count  = var.bucket_name != "" ? 1 : 0
   bucket = var.bucket_name
   role   = "roles/storage.objectViewer"
   member = "serviceAccount:${google_service_account.proxy_sa.email}"
@@ -36,9 +37,12 @@ resource "google_cloud_run_v2_service" "gcs_proxy" {
       image = var.proxy_image
 
       # Core environment variables
-      env {
-        name  = "GCS_BUCKET"
-        value = var.bucket_name
+      dynamic "env" {
+        for_each = var.bucket_name != "" ? [1] : []
+        content {
+          name  = "GCS_BUCKET"
+          value = var.bucket_name
+        }
       }
 
       # SPA configuration

@@ -4,8 +4,9 @@ variable "namespace" {
 }
 
 variable "bucket_name" {
-  description = "The name of the GCS bucket to serve files from"
+  description = "The name of the GCS bucket to serve files from (optional)"
   type        = string
+  default     = ""
 }
 
 variable "region" {

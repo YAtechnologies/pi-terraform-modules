@@ -29,7 +29,6 @@ module "gcs_iap_proxy" {
   spa_fallback_file = "index.html" # File to serve for SPA routes (default: index.html)
 
   # Optional configuration
-  enable_cdn      = true
   enable_services = true
 
   proxy_resources = {

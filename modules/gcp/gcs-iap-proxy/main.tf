@@ -109,6 +109,11 @@ resource "google_cloud_run_v2_service" "gcs_proxy" {
   # Configure ingress to only allow load balancer traffic
   ingress = "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER"
 
+  traffic {
+    type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+    percent = 100
+  }
+
   labels = local.labels
 
   depends_on = [

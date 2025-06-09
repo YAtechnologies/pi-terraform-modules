@@ -4,8 +4,9 @@ variable "namespace" {
 }
 
 variable "bucket_name" {
-  description = "The name of the GCS bucket to serve files from"
+  description = "The name of the GCS bucket to serve files from (optional)"
   type        = string
+  default     = ""
 }
 
 variable "region" {
@@ -34,6 +35,7 @@ variable "iap_users" {
 variable "support_email" {
   description = "Support email for IAP OAuth consent screen"
   type        = string
+  default     = ""
 }
 
 variable "application_title" {

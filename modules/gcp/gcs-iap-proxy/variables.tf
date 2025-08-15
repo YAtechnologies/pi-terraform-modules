@@ -92,7 +92,7 @@ variable "create_iap_brand" {
 variable "existing_iap_brand" {
   description = "Full name of existing IAP brand to use (if create_iap_brand is false). Format: projects/PROJECT_NUMBER/brands/BRAND_ID"
   type        = string
-  default     = "projects/${local.project.number}/brands/${local.project.number}"
+  default     = null
 }
 
 variable "spa_mode" {

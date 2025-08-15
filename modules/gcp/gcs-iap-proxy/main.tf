@@ -217,7 +217,7 @@ resource "google_iap_brand" "project_brand" {
 # IAP OAuth client
 resource "google_iap_client" "iap_client" {
   display_name = "${var.namespace} IAP Client"
-  brand        = var.create_iap_brand ? google_iap_brand.project_brand[0].name : var.existing_iap_brand
+  brand        = var.create_iap_brand ? google_iap_brand.project_brand[0].name : local.existing_iap_brand
 }
 
 # Allow time for backend service with IAP to be fully propagated

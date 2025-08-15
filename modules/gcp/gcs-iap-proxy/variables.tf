@@ -86,13 +86,13 @@ variable "enable_services" {
 variable "create_iap_brand" {
   description = "Whether to create a new IAP brand (OAuth consent screen). Set to false if one already exists"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "existing_iap_brand" {
   description = "Full name of existing IAP brand to use (if create_iap_brand is false). Format: projects/PROJECT_NUMBER/brands/BRAND_ID"
   type        = string
-  default     = null
+  default     = "projects/${local.project.number}/brands/${local.project.number}"
 }
 
 variable "spa_mode" {

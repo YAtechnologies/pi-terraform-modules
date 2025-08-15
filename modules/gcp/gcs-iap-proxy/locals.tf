@@ -1,7 +1,9 @@
 locals {
   project = data.google_client_config.current.project
 
-  existing_iap_brand = var.existing_iap_brand != null ? var.existing_iap_brand : "projects/${local.project}/brands/${local.project}"
+  project_number = data.google_project.project.number
+
+  existing_iap_brand = var.existing_iap_brand != null ? var.existing_iap_brand : "projects/${local.project_number}/brands/${local.project_number}"
 
   labels = merge({
     namespace = var.namespace,

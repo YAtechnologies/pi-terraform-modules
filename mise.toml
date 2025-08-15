@@ -1,0 +1,13 @@
+[tools]
+checkov = "3"
+infracost = "0.10"
+jq = "latest"
+just = "latest"
+pre-commit = "3"
+python = "3"
+terraform = "latest"
+terraform-docs = "0.16"
+terrascan = "1.19"
+tflint = "0.55"
+tfsec = "1.28"
+trivy = "latest"

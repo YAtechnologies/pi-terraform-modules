@@ -1,0 +1,6 @@
+{
+  // this will auto use terraform fmt
+  // if you have the terraform extension installed
+  "[terraform]": { "editor.formatOnSave": true },
+  "[terraform-hcl]": { "editor.formatOnSave": true }
+}

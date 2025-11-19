@@ -1,0 +1,39 @@
+name: security-scan
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  secret-audit:
+    name: "Secrets Scan"
+    uses: YAtechnologies/cross-github-actions/.github/workflows/secrets-audit.yaml@main
+    secrets: inherit
+    with:
+      runs-on: self-hosted
+      defectdojo-product-type: pi-cloudops-squad
+      defectdojo-product: yassir-platform-cloud
+      defectdojo-engagement-name: pi-terraform-modules
+      project_id: ${{ vars.SEC_GCP_PROJECT_NAME }}
+      workload_identity_provider: ${{ vars.SEC_WIP_GCP_ARTIFACT_STORAGE }}
+      service_account: ${{ vars.SEC_WIP_GCP_ARTIFACT_STORAGE_SVC_ACCT }}
+      artifact_storage_bucket: ${{ vars.GCP_ARTIFACT_STORAGE_BUCKET }}
+  Security-Scan:
+    name: Security Scan
+    uses: YAtechnologies/cross-github-actions/.github/workflows/iac-scan.yaml@main
+    secrets: inherit
+    with:
+      runs-on: self-hosted
+      defectdojo-product-type: pi-cloudops-squad
+      defectdojo-product: yassir-platform-cloud
+      defectdojo-engagement-name: pi-terraform-modules
+      project_id: ${{ vars.SEC_GCP_PROJECT_NAME }}
+      workload_identity_provider: ${{ vars.SEC_WIP_GCP_ARTIFACT_STORAGE }}
+      service_account: ${{ vars.SEC_WIP_GCP_ARTIFACT_STORAGE_SVC_ACCT }}
+      artifact_storage_bucket: ${{ vars.GCP_ARTIFACT_STORAGE_BUCKET }}
